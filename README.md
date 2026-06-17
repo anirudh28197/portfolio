@@ -4,25 +4,31 @@ A single-page Product Manager portfolio site — built from Anirudh's resume, bu
 
 No build step — plain HTML/CSS/JS, no backend, no dependencies.
 
+Live at **[anirudhsoman.in](https://anirudhsoman.in)**.
+
 ## 1. Preview it locally
 
 Just open `index.html` in your browser — double-click the file, or right-click → Open With → your browser. No server needed.
 
-## 2. Deploy to Netlify (free)
+## 2. How deployment works
 
-1. Go to [netlify.com](https://www.netlify.com) and sign up for a free account (you can use your Google or email account).
-2. Once logged in, you'll land on your **Sites** page. Look for a box that says **"Add new site"** → click it → choose **"Deploy manually"**.
-3. A page appears with a dashed drop-zone that says **"Drag and drop your site output folder here"**.
-4. Open Finder, find this `portfolio` folder, and drag the whole folder onto that drop-zone.
-5. Netlify uploads it and gives you a live URL right away, like `https://random-name-123.netlify.app`. That's your site — open it to check.
+This site auto-deploys — there's no manual upload step anymore.
 
-## 3. Give it a nicer URL
+- Code lives on GitHub: `https://github.com/anirudh28197/portfolio` (branch `main`)
+- Netlify is connected to that repo and rebuilds the live site automatically on every push
+- The custom domain `anirudhsoman.in` is pointed at Netlify via Netlify DNS (nameservers were changed at GoDaddy), with free auto-renewing SSL
 
-1. On your new site's page in Netlify, click **"Site configuration"** in the left sidebar.
-2. Click **"Change site name"**.
-3. Enter something like `anirudh-soman` and save. Your site is now at `https://anirudh-soman.netlify.app` (or similar — Netlify will tell you if that name is taken and suggest you try another).
+So shipping a change is just:
 
-## 4. Updating content later
+```
+git add .
+git commit -m "describe the change"
+git push
+```
+
+Netlify picks it up within a minute or two — check the **"Deploys"** tab on the site's Netlify dashboard to watch progress or see build logs if something looks off.
+
+## 3. Updating content
 
 Everything is in one file: `index.html`. Each section is clearly commented (`<!-- HERO -->`, `<!-- CASE STUDIES -->`, `<!-- PERSONAL PROJECTS -->`, `<!-- SKILLS -->`, etc.) — find the section, edit the text, save.
 
@@ -31,9 +37,10 @@ Each case study under `<!-- CASE STUDIES -->` follows the same pattern: a number
 - Colors/spacing: `style.css` — the accent color is one line near the top (`--accent: #2dd4bf;`), change it there to re-theme the whole site.
 - Animations/interactions: `script.js`.
 
-After editing, redeploy by dragging the `portfolio` folder onto your site's **"Deploys"** tab in Netlify (same drag-and-drop as step 2).
+After editing, commit and push (see above) to go live.
 
-## 5. Later, if you want it (optional)
+## 4. If something goes wrong with the domain/SSL
 
-- **Custom domain**: if you buy a domain (e.g. `anirudhsoman.com`), Netlify's **"Domain management"** page walks you through pointing it at this site.
-- **Auto-deploy on every change**: connecting this folder to a GitHub repo and linking that repo in Netlify means edits go live automatically without re-dragging the folder. Worth doing later if you start updating the site often — ask and we can set it up.
+- Domain/DNS settings: GoDaddy → My Products → `anirudhsoman.in` → DNS (nameservers should be `dns1-4.p05.nsone.net`)
+- Netlify-side domain config: Netlify site → Site configuration → Domain management
+- SSL is automatic (Let's Encrypt via Netlify) and renews on its own — nothing to maintain manually
