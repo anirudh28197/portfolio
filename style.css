@@ -442,6 +442,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 @media (max-width: 860px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
   .project-grid { grid-template-columns: 1fr; }
+  .case-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; gap: 1.75rem; }
 }
 
@@ -460,5 +461,15 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
     border-bottom: 1px solid var(--border);
     padding: 1rem 1.5rem;
     gap: 1rem;
+  }
+
+  .project-grid {
+    margin: 0 -1.5rem;
+  }
+
+  .project-grid .card {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }
