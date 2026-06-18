@@ -463,13 +463,8 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
     gap: 1rem;
   }
 
+  .case-grid,
   .project-grid {
     margin: 0 -1.5rem;
-  }
-
-  .project-grid .card {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
   }
 }
